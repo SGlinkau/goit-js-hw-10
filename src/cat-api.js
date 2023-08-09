@@ -14,13 +14,24 @@ export function fetchBreeds() {
 }
 
 export function fetchCatByBreed(breedId) {
-  return fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}`, {
-    headers: {
-      "x-api-key": apiKey,
-    },
-  })
-    .then(response => response.json())
-    .then(data => data[0])
+  return Promise.all([
+    fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breedId}`, {
+      headers: {
+        "x-api-key": apiKey,
+      },
+    }),
+    fetchBreeds(), 
+  ])
+    .then(([catResponse, breedsData]) => {
+      return Promise.all([catResponse.json(), breedsData]);
+    })
+    .then(([catData, breedsData]) => {
+      const selectedBreed = breedsData.find(breed => breed.id === breedId);
+      return {
+        ...catData[0],
+        temperament: selectedBreed.temperament,
+      };
+    })
     .catch(error => {
       throw error;
     });
