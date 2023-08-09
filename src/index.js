@@ -48,10 +48,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const breedName = data.breeds[0].name;
 
         catInfo.innerHTML = `
-          <img src="${catImageUrl}" alt="Cat" style="max-width: 600px; max-height: 800px; margin-top: 20px;">
-          <h2>${breedName}</h2>
-          <p>${catDescription}</p>
-          <p><strong>Temperament:</strong> ${breedTemperament}</p>
+          <div style="display: flex; align-items: center;">
+            <img src="${catImageUrl}" alt="Cat" style="max-width: 400px; max-height: 400px; margin-right: 20px;">
+            <div>
+              <h2>${breedName}</h2>
+              <p>${catDescription}</p>
+              <p><strong>Temperament:</strong> ${breedTemperament}</p>
+            </div>
+          </div>
         `;
 
         loader.style.display = "none";
