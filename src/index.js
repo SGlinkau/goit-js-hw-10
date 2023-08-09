@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         catInfo.innerHTML = `
           <div style="display: flex; align-items: center;">
-            <img src="${catImageUrl}" alt="Cat" style="max-width: 400px; max-height: 400px; margin-right: 20px;">
+            <img src="${catImageUrl}" alt="Cat" style="max-width: 400px; max-height: 400px; margin-top: 40px; margin-right: 20px;">
             <div>
               <h2>${breedName}</h2>
               <p>${catDescription}</p>
