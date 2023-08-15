@@ -43,9 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
     fetchCatByBreed(selectedBreedId)
       .then(data => {
         const catImageUrl = data.url;
-        const catDescription = data.breeds[0].description;
+        const catDescription = data.description;
         const breedTemperament = data.temperament;
-        const breedName = data.breeds[0].name;
+        const breedName = data.name;
 
         catInfo.innerHTML = `
           <div style="display: flex; align-items: center;">
